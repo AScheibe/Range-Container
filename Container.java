@@ -48,7 +48,7 @@ public class Container {
         // If end of lower range is adjacnet to new num, expand end of range
         if (lower != null && lower.getEnd() == newNum - 1) {
             lower.setEnd(newNum);
-            range = lower;
+            range = null; // no need to add new range
         }
 
         // If start of higher range is adjacent to new num, expand start of range
@@ -57,13 +57,24 @@ public class Container {
 
             // If lower range end is equal to higher range start, merge the two
             if (lower != null && lower.getEnd() == higher.getStart()) {
-                higher.setStart(lower.getStart());
+                int lower_start = lower.getStart();
+                int higher_end = higher.getEnd();
+
+                // Better to create a new range to avoid unforseen mem conflicts due to removal.
+                // Alternative would be to just expand higher or lower and remove the other but
+                // just felt more comfortable doing this way.
+                
+                range = new Range(lower_start, higher_end); 
+
                 ranges.remove(lower);
+                ranges.remove(higher);
             }
-            range = higher;
+
         }
 
-        ranges.add(range);
+        if(range != null){
+            ranges.add(range);
+        }
     }
 
     /**
