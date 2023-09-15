@@ -38,7 +38,7 @@ To run the demo application, you can use:
 make run
 ```
 
-This command will run the `Demo` class which drives a simple demo of the functionality of the container. Input of integers is continually requested and the subsequent contents of the container are displayed.
+This command will run the `Demo` class which drives a simple demo of the functionality of the container. Input options are continually requested and the subsequent contents of the container can be displayed.
 
 ### Testing
 To run the tests for the `Container` class, use:
