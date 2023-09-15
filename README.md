@@ -11,7 +11,7 @@ I then opted to use a self-balancing tree in order to store the ranges. This off
 an O(log(m)) lookup where m is the number of ranges in the container. In Java, the default implementation of this is `TreeSet`. Having 
 prior class experience working with `TreeSet`, I felt very comfortable building out my implementation around this data structure.
 
-I then created the `Container` class to act as a vessel for the storage of integers, which is heavily documented for reference.
+I then created the `Container` class to act as a vessel for the storage of integers which is heavily documented for reference.
 
 ## Files
 - **Range.java** - A Java class responsible for defining ranges.
